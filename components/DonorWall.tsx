@@ -12,7 +12,7 @@ export function DonorWall({ donors, count }: { donors: PublicDonor[]; count: num
   return (
     <section className="wall">
       <h2>
-        Wall of weirdos <span className="count">{count}</span>
+        Billionaires at Heart <span className="count">{count}</span>
       </h2>
       <p className="legend">☕ under $10 · 🍕 $10–49 · 🛋️ $50–99 · 🏠 $100+</p>
       {donors.length === 0 ? (

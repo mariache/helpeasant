@@ -39,7 +39,7 @@ export async function POST(req: Request) {
           unit_amount: amountCents,
           product_data: {
             name: `${CAMPAIGN_TITLE} ${CAMPAIGN_EMOJI}`,
-            description: `A gift via ${BRAND}. Thank you, weirdo.`,
+            description: `A gift via ${BRAND}. Thank you, future billionaire.`,
           },
         },
       },

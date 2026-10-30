@@ -86,7 +86,7 @@ export function App({ initial }: { initial: Stats }) {
 
       <PayPanel />
 
-      <p className="fine">Donations are gifts and non-refundable. Thank you, weirdo.</p>
+      <p className="fine">Donations are gifts and non-refundable. Thank you, future billionaire.</p>
 
       <DonorWall donors={stats.donors} count={stats.donorCount} />
 
