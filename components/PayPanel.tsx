@@ -3,16 +3,22 @@ import { useRef, useState } from "react";
 import { MESSAGE_MAX, NAME_MAX } from "@/lib/limits";
 import { PayAllModal } from "./PayAllModal";
 
+const PRESETS = [
+  { amount: 5, label: "$5", hint: "☕" },
+  { amount: 20, label: "$20", hint: "🍕" },
+  { amount: 100, label: "$100", hint: "🏠" },
+];
+
 export function PayPanel() {
   const [amount, setAmount] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState<null | "fixed" | "custom">(null);
+  const [loading, setLoading] = useState<null | number | "custom">(null);
   const [error, setError] = useState<string | null>(null);
   const [showModal, setShowModal] = useState(false);
   const amountRef = useRef<HTMLInputElement>(null);
 
-  async function pay(dollars: number, which: "fixed" | "custom") {
+  async function pay(dollars: number, which: number | "custom") {
     setError(null);
     if (!Number.isFinite(dollars) || dollars < 1) {
       setError("Minimum is $1. Generosity has a floor.");
@@ -51,9 +57,19 @@ export function PayPanel() {
         />
       </div>
 
-      <button className="btn primary" disabled={!!loading} onClick={() => pay(100, "fixed")}>
-        {loading === "fixed" ? "Opening Stripe…" : "Pay $100"}
-      </button>
+      <div className="presets">
+        {PRESETS.map((p) => (
+          <button
+            key={p.amount}
+            className="btn preset"
+            disabled={loading !== null}
+            onClick={() => pay(p.amount, p.amount)}
+          >
+            <span className="preset-hint">{p.hint}</span>
+            {loading === p.amount ? "…" : p.label}
+          </button>
+        ))}
+      </div>
 
       <form
         className="custom"
@@ -74,7 +90,7 @@ export function PayPanel() {
           onChange={(e) => setAmount(e.target.value)}
           aria-label="Custom amount in dollars"
         />
-        <button className="btn" type="submit" disabled={!!loading}>
+        <button className="btn" type="submit" disabled={loading !== null}>
           {loading === "custom" ? "…" : "Pay"}
         </button>
       </form>
