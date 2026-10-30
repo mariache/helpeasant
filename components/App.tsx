@@ -7,6 +7,7 @@ import { Progress } from "./Progress";
 import { PayPanel } from "./PayPanel";
 import { DonorWall } from "./DonorWall";
 import { BRAND, BRAND_URL, CAMPAIGN_EMOJI, CAMPAIGN_TAGLINE, CAMPAIGN_TITLE, OWNER_CITY, OWNER_NAME } from "@/lib/config";
+import { ShareLine } from "@/app/api/ShareLine";
 
 const REFRESH_MS = 15_000;
 
@@ -53,7 +54,8 @@ export function App({ initial }: { initial: Stats }) {
         <h1>
           {CAMPAIGN_TITLE} {CAMPAIGN_EMOJI}
         </h1>
-        <p className="tagline">{CAMPAIGN_TAGLINE}</p>
+         <p className="tagline">{CAMPAIGN_TAGLINE}</p>
+        <ShareLine />
       </header>
 
       {justPaid && (

@@ -347,3 +347,63 @@ input:focus {
 .btn.preset:hover {
   filter: brightness(1.25);
 }
+
+.share-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 6px 14px;
+  font: inherit;
+  font-size: 0.85rem;
+  color: #fff;
+  background: #0f1419;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(15, 20, 25, 0.18);
+  transition: transform 0.15s ease;
+}
+.share-pill:hover {
+  transform: translateY(-1px);
+}
+.share-pill:active {
+  transform: scale(0.97);
+}
+.share-pill strong {
+  font-weight: 800;
+}
+.share-rocket {
+  font-size: 1rem;
+  display: inline-block;
+  animation: rocket 2.4s ease-in-out infinite;
+}
+@keyframes rocket {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px) rotate(-8deg);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .share-pill {
+    background: #e7e9ea;
+    color: #0f1419;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .share-rocket {
+    animation: none;
+  }
+}
+
+.btn.ghost {
+  border: 1.5px dashed color-mix(in srgb, var(--brand) 55%, transparent);
+  color: var(--brand);
+}
+.btn.ghost:hover {
+  border-style: solid;
+  background: color-mix(in srgb, var(--brand) 8%, transparent);
+}

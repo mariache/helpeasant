@@ -85,7 +85,7 @@ export function PayPanel() {
           inputMode="decimal"
           min={1}
           step="0.01"
-          placeholder="Any amount"
+          placeholder="Any amount helps"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           aria-label="Custom amount in dollars"
