@@ -279,10 +279,14 @@ input:focus {
 }
 
 .footer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: 6px;
+  text-align: center;
   color: var(--muted);
   font-size: 0.85rem;
+}
+.footer > * {
+  width: 100%;
 }
 .footer a {
   color: var(--brand);
@@ -406,4 +410,11 @@ input:focus {
 .btn.ghost:hover {
   border-style: solid;
   background: color-mix(in srgb, var(--brand) 8%, transparent);
+}
+
+.gh-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
