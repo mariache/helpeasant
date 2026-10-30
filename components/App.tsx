@@ -6,7 +6,7 @@ import { nextMilestone, unlocked } from "@/lib/milestones";
 import { Progress } from "./Progress";
 import { PayPanel } from "./PayPanel";
 import { DonorWall } from "./DonorWall";
-import { BRAND, BRAND_URL, CAMPAIGN_EMOJI, CAMPAIGN_TAGLINE, CAMPAIGN_TITLE, OWNER_CITY, OWNER_NAME } from "@/lib/config";
+import { BRAND, BRAND_URL, CAMPAIGN_EMOJI, CAMPAIGN_TAGLINE, CAMPAIGN_TITLE, OWNER_CITY } from "@/lib/config";
 import { ShareLine } from "@/app/api/ShareLine";
 
 const REFRESH_MS = 15_000;
@@ -98,7 +98,7 @@ export function App({ initial }: { initial: Stats }) {
           Build your own with {BRAND} →
         </a>
        <span>
-          {OWNER_NAME}, a humble peasant from {OWNER_CITY} 🧑‍🌾
+          Built by a humble peasant from {OWNER_CITY} 🧑‍🌾
         </span>
       </footer>
     </main>
